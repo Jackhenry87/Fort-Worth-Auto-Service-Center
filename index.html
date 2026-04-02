@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fort Worth Auto Service Center | F.W.A.S.C | River Oaks, TX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --black: #0D0D0D;
+    --gold: #C8A84B;
+    --gold-light: #E5C96A;
+    --gold-dark: #8B6914;
+    --rust: #8B3A1E;
+    --steel: #2A3240;
+    --steel-light: #3D4A5C;
+    --mid: #6B6B6B;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo .abbr {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+  }
+
+  .nav-logo .full {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: rgba(245,240,232,0.5);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    transition: color 0.25s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.65rem 1.6rem;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 5rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(200,168,75,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(139,58,30,0.08) 0%, transparent 50%),
+      linear-gradient(160deg, #0D0D0D 0%, #141820 50%, #0D0D0D 100%);
+  }
+
+  /* Large decorative gear */
+  .gear-deco {
+    position: absolute;
+    right: -6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55vw;
+    max-width: 700px;
+    opacity: 0.04;
+    animation: spin-slow 60s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    to { transform: translateY(-50%) rotate(360deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 4rem;
+    max-width: 780px;
+  }
+
+  .hero-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.65);
+    max-width: 480px;
+    margin-bottom: 2.6rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.8s forwards;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 1rem 2.4rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(245,240,232,0.3);
+    padding-bottom: 2px;
+    transition: color 0.25s, border-color 0.25s;
+  }
+
+  .btn-secondary:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--gold);
+    padding: 1.6rem 4rem;
+    display: flex;
+    gap: 0;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 2rem;
+  }
+
+  .stat-item + .stat-item {
+    border-left: 1px solid rgba(13,13,13,0.2);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(13,13,13,0.65);
+    margin-top: 3px;
+  }
+
+  /* SECTION COMMON */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ABOUT */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background:
+      radial-gradient(ellipse 60% 60% at 0% 50%, rgba(200,168,75,0.05) 0%, transparent 60%),
+      var(--black);
+  }
+
+  .about-left { }
+
+  .about-lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 1.6rem;
+  }
+
+  .about-lead strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .about-detail {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 2rem;
+  }
+
+  .about-right {
+    position: relative;
+  }
+
+  .about-card {
+    background: var(--steel);
+    border: 1px solid rgba(200,168,75,0.2);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 2rem;
+    width: 3rem; height: 3px;
+    background: var(--gold);
+  }
+
+  .about-card-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--cream);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-card-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .about-card + .about-card {
+    margin-top: 1.5rem;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--steel);
+    border-top: 1px solid rgba(200,168,75,0.1);
+    border-bottom: 1px solid rgba(200,168,75,0.1);
+  }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(200,168,75,0.1);
+  }
+
+  .service-card {
+    background: var(--steel);
+    padding: 2.5rem;
+    transition: background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s;
+  }
+
+  .service-card:hover { background: var(--steel-light); }
+  .service-card:hover::after { width: 100%; }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: rgba(200,168,75,0.06);
+    border-top: 1px solid rgba(200,168,75,0.12);
+    border-bottom: 1px solid rgba(200,168,75,0.12);
+    padding: 3rem 4rem;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+  }
+
+  .trust-item::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.65rem;
+  }
+
+  /* REVIEWS */
+  .reviews {
+    background: var(--black);
+  }
+
+  .reviews-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .rating-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .rating-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+  }
+
+  .rating-count {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-top: 2px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: var(--steel);
+    border: 1px solid rgba(200,168,75,0.1);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .review-card:hover {
+    border-color: rgba(200,168,75,0.35);
+    transform: translateY(-3px);
+  }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.7);
+    font-style: italic;
+    margin-bottom: 1.3rem;
+  }
+
+  .review-author {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .review-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.3);
+    margin-top: 2px;
+  }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: var(--gold);
+    padding: 5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-left .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(13,13,13,0.5);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-banner-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.15;
+  }
+
+  .cta-banner-right {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-dark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--black);
+    padding: 1rem 2.4rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.25s;
+  }
+
+  .btn-dark:hover { background: var(--steel); }
+
+  .btn-outline-dark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--black);
+    padding-bottom: 2px;
+  }
+
+  /* INFO SECTION */
+  .info-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--steel);
+  }
+
+  .info-block {
+    padding: 5rem 4rem;
+    border-right: 1px solid rgba(200,168,75,0.1);
+  }
+
+  .info-block:last-child { border-right: none; }
+
+  .info-block h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+  }
+
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+
+  .info-row .label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    min-width: 5rem;
+    padding-top: 1px;
+  }
+
+  .info-row .val {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.5;
+  }
+
+  .info-row .val a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .hours-table { width: 100%; }
+  .hours-table tr td {
+    font-size: 0.875rem;
+    padding: 0.35rem 0;
+    color: rgba(245,240,232,0.65);
+  }
+  .hours-table tr td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    width: 6rem;
+  }
+  .hours-table tr.today td { color: var(--gold); }
+
+  /* MAP EMBED */
+  .map-wrap {
+    width: 100%;
+    height: 320px;
+    background: var(--steel);
+    border-top: 1px solid rgba(200,168,75,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--steel) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .map-label {
+    position: absolute;
+    top: 50%; left: 4rem;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .map-label p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .map-label address {
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+
+  .map-label a {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(200,168,75,0.1);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo .abbr {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+  }
+
+  .footer-logo .full {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,240,232,0.3);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(245,240,232,0.25);
+    text-align: center;
+  }
+
+  .footer-phone a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DIVIDER */
+  .gold-divider {
+    width: 3rem;
+    height: 2px;
+    background: var(--gold);
+    margin: 1.4rem 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero-content { padding: 0 1.5rem; }
+    .stats-strip { padding: 1.5rem; gap: 1rem; }
+    .stat-item + .stat-item { border-left: none; }
+    .about, .info-section { grid-template-columns: 1fr; }
+    .info-block { border-right: none; border-bottom: 1px solid rgba(200,168,75,0.1); }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .cta-banner { padding: 3rem 1.5rem; }
+    .trust-bar { padding: 2rem 1.5rem; gap: 1.5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .map-label { left: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="abbr">F.W.A.S.C</span>
+    <span class="full">Fort Worth Auto Service Center</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:8176243151" class="nav-cta">Call Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Decorative SVG Gear -->
+  <svg class="gear-deco" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#C8A84B" d="M100 30 L108 10 L112 10 L120 30 A72 72 0 0 1 148 52 L168 44 L171 47 L163 67 A72 72 0 0 1 170 100 L190 108 L190 112 L170 120 A72 72 0 0 1 148 148 L156 168 L153 171 L133 163 A72 72 0 0 1 100 170 L92 190 L88 190 L80 170 A72 72 0 0 1 52 148 L32 156 L29 153 L37 133 A72 72 0 0 1 30 100 L10 92 L10 88 L30 80 A72 72 0 0 1 52 52 L44 32 L47 29 L67 37 A72 72 0 0 1 100 30Z"/>
+    <circle cx="100" cy="100" r="35" fill="#0D0D0D"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">River Oaks, Fort Worth, TX · Est. 50+ Years</div>
+    <h1>Where <em>Trust</em><br>Meets the<br>Road.</h1>
+    <p class="hero-desc">Fort Worth's most trusted family-owned auto service center. Roy Thieme and his team have kept North Texas rolling for over half a century — with honest prices, expert hands, and a handshake you can count on.</p>
+    <div class="hero-actions">
+      <a href="tel:8176243151" class="btn-primary">Call (817) 624-3151</a>
+      <a href="#services" class="btn-secondary">View Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num">50+</span>
+    <span class="stat-label">Years in Business</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">4.9</span>
+    <span class="stat-label">Google Rating</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">37</span>
+    <span class="stat-label">5-Star Reviews</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">1st</span>
+    <span class="stat-label">Time Fix Guarantee</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left fade-in">
+    <div class="section-tag">Our Story</div>
+    <h2 class="section-title">A Name River Oaks Has Trusted for Generations.</h2>
+    <div class="gold-divider"></div>
+    <p class="about-lead">
+      Roy Thieme built F.W.A.S.C on a simple promise: <strong>treat every car like it's your own, and every customer like a neighbor.</strong> Over 50 years later, that promise hasn't changed — and neither has our zip code.
+    </p>
+    <p class="about-detail">
+      We're a family-owned shop right here on River Oaks Blvd. No franchise. No corporate policies. Just Roy, Carol, and a team of skilled mechanics who know your name, know your car, and stand behind every job they do. When we fix it, it stays fixed.
+    </p>
+    <a href="tel:8176243151" class="btn-primary">Schedule a Visit</a>
+  </div>
+
+  <div class="about-right fade-in">
+    <div class="about-card">
+      <p class="about-card-quote">"It means a LOT when you can 100% trust an automotive service center. Roy Thieme is the rare find you have been looking for in automotive care."</p>
+      <span class="about-card-author">— Lisa Collins, Local Guide · 9 months ago</span>
+    </div>
+    <div class="about-card">
+      <p class="about-card-quote">"I've been a customer for at least 15 years and I highly recommend them. Reliable, trustworthy, and honest. They guarantee their work."</p>
+      <span class="about-card-author">— Richard Bittner, Local Guide · 3 years ago</span>
+    </div>
+    <div class="about-card">
+      <p class="about-card-quote">"A repair shop that knows their stuff and has the equipment to get it done right the 1st time."</p>
+      <span class="about-card-author">— Richard Britton · 5 years ago</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">Family Owned & Operated</div>
+  <div class="trust-item">Fair & Honest Pricing</div>
+  <div class="trust-item">Work Guaranteed</div>
+  <div class="trust-item">50+ Years Experience</div>
+  <div class="trust-item">All Makes & Models</div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header fade-in">
+    <div>
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Full-Service Auto Care,<br>Done Right the First Time.</h2>
+    </div>
+    <a href="tel:8176243151" class="btn-primary" style="white-space:nowrap;">Call for a Quote</a>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <span class="service-icon">🔧</span>
+      <div class="service-name">Engine Repair</div>
+      <p class="service-desc">From diagnostics to full rebuilds, we handle engine issues of all kinds with precision equipment and decades of expertise.</p>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🛞</span>
+      <div class="service-name">Brakes & Suspension</div>
+      <p class="service-desc">Your safety is non-negotiable. We inspect, repair, and replace brake systems and suspension components to spec.</p>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🔩</span>
+      <div class="service-name">Transmission Service</div>
+      <p class="service-desc">Automatic or manual, we diagnose and repair transmission problems before they become expensive ones.</p>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🌡️</span>
+      <div class="service-name">A/C & Heating</div>
+      <p class="service-desc">Texas summers are no joke. We recharge, repair, and service your climate control system so you stay comfortable year-round.</p>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🔋</span>
+      <div class="service-name">Electrical Systems</div>
+      <p class="service-desc">Battery, alternator, starter, and complex electrical diagnostics — we trace the problem and fix it fast.</p>
+    </div>
+    <div class="service-card fade-in">
+      <span class="service-icon">🛢️</span>
+      <div class="service-name">Oil Changes & Maintenance</div>
+      <p class="service-desc">Routine service done right. We keep your vehicle on a maintenance schedule that protects your investment long-term.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header fade-in">
+    <div class="section-tag" style="justify-content:center;">What Customers Say</div>
+    <h2 class="section-title">North Texas Speaks for Itself.</h2>
+    <div class="rating-display">
+      <span class="rating-big">4.9</span>
+      <div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-count">37 Google Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"These people are golden, long track record of great work at a reasonable price. My family has been doing business with them for years!! Can't go wrong using these people!"</p>
+      <div class="review-author">Jason Roark</div>
+      <div class="review-meta">1 year ago</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"They always take care of her car issues right, and are the best price in town. Thank you!"</p>
+      <div class="review-author">Michelle Donohue</div>
+      <div class="review-meta">Local Guide · 2 years ago</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Roy and Carroll are the absolute sweetest people. Very honest and upfront. You can't go wrong here. I highly recommend this place."</p>
+      <div class="review-author">4010djs Productions</div>
+      <div class="review-meta">7 years ago</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I was very stressed with the cost of my repair and they were a God send — peace of mind from their craftsmanship, affordability, and customer service. They have my business permanently."</p>
+      <div class="review-author">Clay Jennings</div>
+      <div class="review-meta">Local Guide · 5 years ago</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Have been looking for a reputable auto service center for years. Finally found it. Roy explained everything and made his suggestions. Very easy to work with and very reasonable prices."</p>
+      <div class="review-author">Yochanan Snyder</div>
+      <div class="review-meta">Local Guide · 4 years ago</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I have had repairs done here since I was just out of high school — almost 30 years now. If you're looking for a place that will treat you fair and fix it right the first time, this is your place."</p>
+      <div class="review-author">Richard R Britton</div>
+      <div class="review-meta">Local Guide · 5 years ago</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-left">
+    <p class="eyebrow">Ready to Get Started?</p>
+    <h2>Your Car Deserves<br>Honest Hands.</h2>
+  </div>
+  <div class="cta-banner-right">
+    <a href="tel:8176243151" class="btn-dark">Call (817) 624-3151</a>
+    <a href="#contact" class="btn-outline-dark">Get Directions →</a>
+  </div>
+</div>
+
+<!-- INFO & HOURS -->
+<div class="info-section" id="contact">
+  <div class="info-block fade-in">
+    <h3>Location & Contact</h3>
+    <div class="info-row">
+      <span class="label">Address</span>
+      <span class="val">5216 River Oaks Blvd<br>River Oaks, TX 76114</span>
+    </div>
+    <div class="info-row">
+      <span class="label">Phone</span>
+      <span class="val"><a href="tel:8176243151">(817) 624-3151</a></span>
+    </div>
+    <div class="info-row">
+      <span class="label">Area</span>
+      <span class="val">Serving River Oaks, Fort Worth & surrounding North Texas communities</span>
+    </div>
+    <br>
+    <a href="https://maps.google.com/?q=5216+River+Oaks+Blvd+River+Oaks+TX+76114" target="_blank" class="btn-primary" style="margin-top:0.5rem;">Get Directions</a>
+  </div>
+
+  <div class="info-block fade-in">
+    <h3>Hours of Operation</h3>
+    <table class="hours-table">
+      <tr><td>Mon</td><td>8:00 AM – 5:00 PM</td></tr>
+      <tr><td>Tue</td><td>8:00 AM – 5:00 PM</td></tr>
+      <tr><td>Wed</td><td>8:00 AM – 5:00 PM</td></tr>
+      <tr><td>Thu</td><td>8:00 AM – 5:00 PM</td></tr>
+      <tr class="today"><td>Fri</td><td>8:00 AM – 5:00 PM ← Today</td></tr>
+      <tr><td>Sat</td><td>By Appointment</td></tr>
+      <tr><td>Sun</td><td>Closed</td></tr>
+    </table>
+    <br>
+    <p style="font-size:0.8rem; color:rgba(245,240,232,0.4); margin-top:0.5rem;">Hours may vary. Call ahead to confirm availability.</p>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-wrap">
+  <div class="map-overlay"></div>
+  <div class="map-label">
+    <p>Find Us Here</p>
+    <address>5216 River Oaks Blvd<br>River Oaks, TX 76114</address>
+    <a href="https://maps.google.com/?q=5216+River+Oaks+Blvd+River+Oaks+TX+76114" target="_blank">Open in Google Maps →</a>
+  </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.7!2d-97.415!3d32.745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e77c3b!2s5216+River+Oaks+Blvd%2C+River+Oaks%2C+TX+76114!5e0!3m2!1sen!2sus!4v1"
+    width="100%" height="320" style="border:0; filter: saturate(0.2) brightness(0.4);" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="abbr">F.W.A.S.C</div>
+    <div class="full">Fort Worth Auto Service Center</div>
+  </div>
+  <p class="footer-copy">© 2025 Fort Worth Auto Service Center · 5216 River Oaks Blvd, River Oaks, TX 76114<br>Family-owned & operated for over 50 years.</p>
+  <div class="footer-phone">
+    <a href="tel:8176243151">(817) 624-3151</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
